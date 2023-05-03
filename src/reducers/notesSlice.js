@@ -2,7 +2,7 @@ import { generateNextId, filterNotes } from "../util";
 import { DELETE_NOTE, SAVE_NOTE, SELECT_NOTE, FILTER_NOTES } from "../util/constants";
 
 const initialState = [
-  { id: generateNextId(), name: 'First Note', content: 'This is my very first note', selected: false, hidden: false },
+  { id: generateNextId(), name: 'First Note', content: 'This is my very first note', selected: true, hidden: false },
   { id: generateNextId(), name: 'Second Note', content: 'This is my second note.', selected: false, hidden: false }
 ];
 
@@ -46,3 +46,5 @@ export const notesReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export const selectNotes = state => state.notes;

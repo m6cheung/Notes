@@ -1,0 +1,16 @@
+.list-item {
+  list-style: none;
+  margin-bottom: 12px;
+}
+
+.list-item--btn {
+  margin-right: 12px;
+  margin-bottom: none;
+  width: 60px;
+}
+
+.list-item--name {
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+}

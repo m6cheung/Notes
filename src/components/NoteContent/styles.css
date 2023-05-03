@@ -1,0 +1,8 @@
+.note-content-wrapper {
+  margin-top: 16px;
+  /* margin-right: 16px; */
+}
+
+.note-content-text {
+  resize: none;
+}
