@@ -1,12 +1,9 @@
-export const generateNextId = (notes) => {
+export const generateNextId = (() => {
   let maxId = 0;
-
-  notes.forEach(note => {
-    maxId = Math.max(note.id, maxId);
-  });
-
-  return maxId + 1;
-};
+  return () => {
+    return maxId++;
+  };
+})();
 
 export const filterNotes = (notes, keywords) => {
   if (!keywords.length) {

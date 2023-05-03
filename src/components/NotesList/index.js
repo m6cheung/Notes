@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState, useSelector } from 'react';
 import ListItem from './ListItem';
 
 const NotesList = () => {
   return (
-    <ul>
+    <ul className='notes-list'>
       <ListItem />
     </ul>
   );
