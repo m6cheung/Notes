@@ -1,4 +1,11 @@
-import { SELECT_NOTE, SAVE_NOTE, DELETE_NOTE, FILTER_NOTES, ADD_NOTE } from '../util/constants';
+import {
+  SELECT_NOTE,
+  SAVE_NOTE_CONTENT,
+  SAVE_NOTE_NAME,
+  DELETE_NOTE,
+  FILTER_NOTES,
+  ADD_NOTE
+} from '../util/constants';
 
 export const addNote = () => {
   return {
@@ -6,10 +13,23 @@ export const addNote = () => {
   };
 };
 
-export const saveNote = (note) => {
+export const saveNoteContent = (id, content) => {
   return {
-    type: SAVE_NOTE,
-    payload: note
+    type: SAVE_NOTE_CONTENT,
+    payload: {
+      id,
+      content
+    }
+  };
+};
+
+export const saveNoteName = (id, name) => {
+  return {
+    type: SAVE_NOTE_NAME,
+    payload: {
+      id,
+      name
+    }
   };
 };
 

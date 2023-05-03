@@ -2,8 +2,8 @@
   padding-left: 0;
 }
 
-.notes-list:last-child {
-  margin-top: 16px;
+.notes-list--add {
+  margin-top: 32px;
 }
 
 .list-item {
@@ -25,4 +25,15 @@
 
 .list-item--name:hover {
   background-color: #e4ffff;
+}
+
+.list-item--selected input[type="text"] {
+  background-color: #c6ffff
+}
+
+.search-wrapper {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+  width: 100%;
 }
