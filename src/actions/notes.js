@@ -1,4 +1,10 @@
-import { SELECT_NOTE, SAVE_NOTE, DELETE_NOTE, FILTER_NOTE } from '../util/constants';
+import { SELECT_NOTE, SAVE_NOTE, DELETE_NOTE, FILTER_NOTES, ADD_NOTE } from '../util/constants';
+
+export const addNote = () => {
+  return {
+    type: ADD_NOTE
+  };
+};
 
 export const saveNote = (note) => {
   return {

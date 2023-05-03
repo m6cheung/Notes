@@ -1,10 +1,3 @@
-export const generateNextId = (() => {
-  let maxId = 0;
-  return () => {
-    return maxId++;
-  };
-})();
-
 export const filterNotes = (notes, keywords) => {
   if (!keywords.length) {
     for (const id in notes) {

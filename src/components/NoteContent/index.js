@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectNotes } from '../../reducers/notesSlice';
+import TextArea from './TextArea';
 import './styles.css';
 
 const NoteContent = () => {
@@ -7,12 +9,10 @@ const NoteContent = () => {
 
   return (
     <div className='note-content-wrapper'>
-      {notes.map(note => {
+      {Object.keys(notes).map(id => {
         return (
-          note.selected &&
-          <textarea className='note-content-text' rows="15" cols="50" key={note.id} >
-            {note.content}
-          </textarea>
+          notes[id].selected &&
+          <TextArea key={id} content={notes[id].content} />
         );
       })}
     </div >
