@@ -1,4 +1,3 @@
-import { filterNotes } from "../util";
 import { v4 as uuid } from 'uuid';
 import {
   DELETE_NOTE,
@@ -8,6 +7,7 @@ import {
   FILTER_NOTES,
   ADD_NOTE
 } from "../util/constants";
+import { getFilteredNotes } from "../util";
 
 let id1 = uuid();
 let id2 = uuid();
@@ -90,8 +90,8 @@ export const notesReducer = (state = initialState, action = {}) => {
 
     case FILTER_NOTES: {
       const keywords = action.payload;
-      const filteredNotes = filterNotes({ ...state }, keywords);
-      return filteredNotes;
+      const filteredNotes = getFilteredNotes({ ...state.allNotes }, keywords);
+      return { ...state, filtered: filteredNotes, selected: null };
     }
 
     default:
