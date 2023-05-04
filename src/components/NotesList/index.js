@@ -19,6 +19,10 @@ const NotesList = () => {
 
   const handleAddNote = (_) => {
     dispatch(addNote());
+    if (searchText.length) {
+      dispatch(filterNotes(''));
+      setSearchText('');
+    }
   };
 
   const handleSearchTextChange = (e) => {
@@ -79,7 +83,6 @@ const NotesList = () => {
               onDelete={(_) => onDelete(id, selected === id)}
               onListItemBlur={(updatedName) => onListItemBlur(id, updatedName)}
               onNoteSelect={(_) => onNoteSelect(id)}
-
               id={id}
               savedContent={allNotes[id].content}
             /> : null;

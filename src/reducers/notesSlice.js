@@ -27,7 +27,7 @@ export const notesReducer = (state = initialState, action = {}) => {
         ...state,
         allNotes: {
           ...state.allNotes,
-          [uuid()]: { name: 'Unnamed note', content: '', hidden: false }
+          [uuid()]: { name: 'Unnamed note', content: '' }
         },
       };
     }
@@ -68,23 +68,20 @@ export const notesReducer = (state = initialState, action = {}) => {
       const filtered = { ...state.filtered };
 
       delete allNotes[deleteId];
-      // Filter logic can be refactored into a new action creator to decouple.
       if (filtered[deleteId]) {
         delete filtered[deleteId];
       }
       return { ...state, allNotes, filtered };
     }
 
+    // Select logic can be refactored into a new action creator to decouple.
     case SELECT_NOTE: {
       const selectedId = action.payload;
       const newState = { ...state };
 
       newState.selected = selectedId;
       return {
-        ...newState,
-        allNotes: {
-          ...newState.allNotes
-        }
+        ...newState
       };
     }
 
