@@ -55,40 +55,37 @@ const NotesList = () => {
     dispatch(selectNote(id));
   };
 
-
   const { allNotes = {}, filtered = {}, selected = '' } = notes;
   return (
-    <>
-      <ul className='notes-list'>
-        <form className='search-wrapper'>
-          <input
-            type="text"
-            name='notes-search'
-            autoComplete='off'
-            value={searchText}
-            placeholder={"Start Search"}
-            onChange={handleSearchTextChange}
-          />
-          <button onClick={handleSearch}>Search</button>
-        </form>
+    <ul className='notes-list'>
+      <form className='search-wrapper'>
+        <input
+          type="text"
+          name='notes-search'
+          autoComplete='off'
+          value={searchText}
+          placeholder={"Start Search"}
+          onChange={handleSearchTextChange}
+        />
+        <button onClick={handleSearch}>Search</button>
+      </form>
 
-        <button className='notes-list--add' onClick={handleAddNote}>Add Note</button>
+      <button className='notes-list--add' onClick={handleAddNote}>Add Note</button>
 
-        {Object.keys(allNotes).map(id => {
-          return !filtered[id] ?
-            <ListItem
-              key={id}
-              name={allNotes[id].name}
-              selected={selected === id}
-              onDelete={(_) => onDelete(id, selected === id)}
-              onListItemBlur={(updatedName) => onListItemBlur(id, updatedName)}
-              onNoteSelect={(_) => onNoteSelect(id)}
-              id={id}
-              savedContent={allNotes[id].content}
-            /> : null;
-        })}
-      </ul>
-    </>
+      {Object.keys(allNotes).map(id => {
+        return !filtered[id] ?
+          <ListItem
+            key={id}
+            name={allNotes[id].name}
+            selected={selected === id}
+            onDelete={(_) => onDelete(id, selected === id)}
+            onListItemBlur={(updatedName) => onListItemBlur(id, updatedName)}
+            onNoteSelect={(_) => onNoteSelect(id)}
+            id={id}
+            savedContent={allNotes[id].content}
+          /> : null;
+      })}
+    </ul>
   );
 
 };
